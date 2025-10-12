@@ -132,9 +132,9 @@ AFTER INSERT OR UPDATE ON Entry
 FOR EACH ROW
 BEGIN
     IF INSERTING THEN
-        DBMS_OUTPUT.PUT_LINE('新条目添加: ' || :NEW.name);
+        DBMS_OUTPUT.PUT_LINE('add new entry: ' || :NEW.name);
     ELSIF UPDATING THEN
-        DBMS_OUTPUT.PUT_LINE('条目更新: ' || :OLD.name || ' -> ' || :NEW.name);
+        DBMS_OUTPUT.PUT_LINE('update entry: ' || :OLD.name || ' -> ' || :NEW.name);
     END IF;
 END;
 /
