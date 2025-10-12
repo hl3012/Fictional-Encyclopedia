@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  oracle:
+    image: container-registry.oracle.com/database/express:21.3.0-xe
+    container_name: wiki-oracle
+    environment:
+      - ORACLE_PWD=Oracle123
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+    healthcheck:                 
+      test: ["CMD", "healthcheck.sh"]
+      start_period: 5m
+
+  elasticsearch:
+    image: elasticsearch:8.11.0
+    container_name: wiki-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  php-apache:
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    container_name: wiki-php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./php:/var/www/html
+    depends_on:
+      - oracle
+      - elasticsearch
+
+volumes:
+  oracle_data:
+  es_data:
