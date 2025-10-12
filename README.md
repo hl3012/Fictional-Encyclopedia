@@ -9,3 +9,5 @@ The database will store and manage user-contributed fictional encyclopedia entri
 ### Application platform
 
 This project will use the Oracle relational database to store and manage data. For the application,  use HTML, CSS and JAVA Script for the front-end, and PHP for the back-end.
+
+![simple presentation](demo.gif)
