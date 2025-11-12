@@ -3,5 +3,3 @@ The goal of the project is to build a fictional encyclopedia platform about supe
 
 Application platform
 This project will use the Indexes Oracle relational database to store and manage data. Executed stored procedures, triggers.For the application, use HTML, CSS and JAVA Script for the front-end, and PHP for the back-end. Enhanced content search experience integrating ElasticSearch with Inverted Index.
-
-![1760249364357](image/README/1760249364357.gif)
