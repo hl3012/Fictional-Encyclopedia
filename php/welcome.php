@@ -32,7 +32,7 @@
         $esResults = $esService->search($searchQuery);
     }
 
-    // === initialize ElasticSearch（admin）===
+    // === initialize ElasticSearch admin===
     if ($isAdmin && isset($_GET['init_es']) && $esService) {
         // add all entries to ES
         $stmt = oci_parse($conn, "
@@ -325,26 +325,26 @@
 <h2>Welcome, <?= $username ?> (<?= $identity ?>)</h2>
 
 <div class="feature-card">
-    <h3>📊 Stored Procedure Statistics</h3>
+    <h3>Stored Procedure Statistics</h3>
     <p>You have contributed <strong style="color: #d97742;"><?= $userEntryCount ?></strong> entries (calculated via stored procedure)</p>
 </div>
 
 <div class="es-search">
-    <h3>🔍 ElasticSearch Search (Using Inverted Index)</h3>
+    <h3> ElasticSearch Search (Using Inverted Index)</h3>
     
     <!-- Display ES Status -->
     <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 5px; margin-bottom: 10px;">
         <?php if ($esService && $esService->client): ?>
-            <span style="color: #4ecdc4;">✅ ElasticSearch Connected</span>
+            <span style="color: #4ecdc4;"> ElasticSearch Connected</span>
             <?php if ($isAdmin): ?>
                 <div style="margin-top: 5px;">
                     <a href="?init_es=1" style="color: #4ecdc4; text-decoration: none; font-size: 14px;">
-                        🔄 Initialize ElasticSearch Index
+                         Initialize ElasticSearch Index
                     </a>
                 </div>
             <?php endif; ?>
         <?php else: ?>
-            <span style="color: #ff6b6b;">❌ ElasticSearch Not Connected</span>
+            <span style="color: #ff6b6b;">ElasticSearch Not Connected</span>
             <small style="display: block;">Please ensure that the ElasticSearch service is running and the PHP client is installed.</small>
         <?php endif; ?>
     </div>
@@ -578,7 +578,7 @@ textarea {
 
 
 <div class="feature-card">
-    <h3>💡 Advanced Features Implemented</h3>
+    <h3>Advanced Features Implemented</h3>
     <ul>
         <li><strong>Database Indexes:</strong> Accelerate name and content searches</li>
         <li><strong>Stored Procedures:</strong> Track user contribution statistics</li>
